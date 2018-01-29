@@ -82,35 +82,40 @@
     <!--########################START HERE#########################-->
 
     <!-- POPOVER -->
-    <button>
+    <button class="btn btn-danger" data-toggle="popover" data-placement="top"
+            title="Popover Title" data-content="Some text here.">
         Toggle popover
     </button>
 
-    <button>
-        Toggle popover
+    <button class="btn btn-secondary" data-toggle="popover" data-placement="right"
+            title="Popover Title" data-content="Some text here.">
+        Right popover
     </button>
 
-    <button>
-        Toggle popover
+    <button class="btn btn-light" data-toggle="popover" data-placement="bottom"
+            title="Popover Title" data-content="Some text here.">
+        Bottom popover
     </button>
 
-    <button>
-        Toggle popover
+    <button class="btn btn-info" data-toggle="popover" data-placement="left"
+            title="Popover Title" data-content="Some text here.">
+        Left popover
     </button>
 
     <br><br>
 
     <!-- DISMISSIBLE POPOVER -->
-    <button>
-        Toggle popover
+    <button id="myPopID" class="btn btn-primary" data-toggle="popover" data-placement="top"
+            data-trigger="focus" title="Popover Title" data-content="Some text here.">
+        Dismissible popover
     </button>
 
     <hr>
 
     <!-- CONTROL WITH JS -->
-    <button>Show Popover</button>
-    <button>Hide Popover</button>
-    <button>Toggle Popover</button>
+    <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
+    <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
+    <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
 </div>
 
 <div style="margin-top:500px;"></div>
@@ -125,6 +130,17 @@
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 <script>
+
+    $('[data-toggle="popover"]').popover();
+
+    showPopover = () => $('#myPopID').popover('show');
+    hidePopover = () => $('#myPopID').popover('hide');
+    togglePopover = () => $('#myPopID').popover('toggle');
+
+    $('#myPopID').on('show.bs.popover', () => console.log('popover show'));
+    $('#myPopID').on('shown.bs.popover', () => console.log('popover shown'));
+    $('#myPopID').on('hide.bs.popover', () => console.log('popover hide'));
+    $('#myPopID').on('hidden.bs.popover', () => console.log('popover hidden'));
 
 </script>
 </body>
